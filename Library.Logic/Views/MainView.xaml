@@ -1,0 +1,36 @@
+﻿<Window x:Class="Library.Logic.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library.Logic.Views"
+        xmlns:viewmodel="clr-namespace:Library.Logic.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"        
+        mc:Ignorable="d"
+        Title="MainView" WindowState="Maximized" Height="1080" Width="1920">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Menu.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToolTip.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="col1" Width="{Binding Col1width, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  ></ColumnDefinition>
+            <ColumnDefinition Name="col2" Width="{Binding Col2width, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Background="LightBlue" Width="640" Height="1080" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label HorizontalAlignment="Center" FontSize="120" FontStyle="Italic" FontWeight="Bold" Foreground="DeepSkyBlue">Login</Label>
+            <Label HorizontalAlignment="Center" FontSize="60" Foreground="CornflowerBlue" Margin="0,80,0,0">Username</Label>
+            <TextBox Background="CornflowerBlue" FontSize="60" Width="420" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+            <Label HorizontalAlignment="Center" FontSize="60" Foreground="CornflowerBlue" Margin="0,80,0,0">Password</Label>
+            <TextBox Background="CornflowerBlue" FontSize="60" Width="420" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+            <Button Margin="0,100,0,10" Height="100" Width="300" FontSize="40" FontWeight="ExtraBold" Command="{Binding loginCommand}">Login</Button>
+            <Button Margin="0,20,0,10" Height="100" Width="300" FontSize="40" FontWeight="ExtraBold" Command="{Binding registerViewCommand}">Registration</Button>
+        </StackPanel>
+        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}"></ContentControl>
+    </Grid>
+</Window>

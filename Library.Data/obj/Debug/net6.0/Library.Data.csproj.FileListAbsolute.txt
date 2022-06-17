@@ -1,0 +1,17 @@
+C:\Users\User\source\repos\Library\Library.Data\bin\Debug\net6.0\Library.Data.deps.json
+C:\Users\User\source\repos\Library\Library.Data\bin\Debug\net6.0\Library.Data.runtimeconfig.json
+C:\Users\User\source\repos\Library\Library.Data\bin\Debug\net6.0\Library.Data.dll
+C:\Users\User\source\repos\Library\Library.Data\bin\Debug\net6.0\ref\Library.Data.dll
+C:\Users\User\source\repos\Library\Library.Data\bin\Debug\net6.0\Library.Data.pdb
+C:\Users\User\source\repos\Library\Library.Data\bin\Debug\net6.0\Library.Models.dll
+C:\Users\User\source\repos\Library\Library.Data\bin\Debug\net6.0\Library.Models.pdb
+C:\Users\User\source\repos\Library\Library.Data\obj\Debug\net6.0\Library.Data.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\Library\Library.Data\obj\Debug\net6.0\Library.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\Library\Library.Data\obj\Debug\net6.0\Library.Data.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\Library\Library.Data\obj\Debug\net6.0\Library.Data.AssemblyInfo.cs
+C:\Users\User\source\repos\Library\Library.Data\obj\Debug\net6.0\Library.Data.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Library\Library.Data\obj\Debug\net6.0\Library.Data.csproj.CopyComplete
+C:\Users\User\source\repos\Library\Library.Data\obj\Debug\net6.0\Library.Data.dll
+C:\Users\User\source\repos\Library\Library.Data\obj\Debug\net6.0\ref\Library.Data.dll
+C:\Users\User\source\repos\Library\Library.Data\obj\Debug\net6.0\Library.Data.pdb
+C:\Users\User\source\repos\Library\Library.Data\obj\Debug\net6.0\Library.Data.genruntimeconfig.cache

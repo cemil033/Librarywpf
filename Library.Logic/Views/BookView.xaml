@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="Library.Logic.Views.BookView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Library.Logic.Views" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewmodel="clr-namespace:Library.Logic.ViewModels" 
+             xmlns:interacitivy="http://schemas.microsoft.com/expression/2010/interactivity"
+             d:DataContext="{d:DesignInstance Type=viewmodel:BookViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920"
+             Background="LightCyan"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="12*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"  VerticalAlignment="Center">
+            <materialDesign:ColorZone
+                Mode="Standard"
+                Padding="8 4 8 4"
+                CornerRadius="2"
+                Panel.ZIndex="1"
+                Margin="16 0 0 0"
+                materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                             Width="Auto" />
+                        <ColumnDefinition
+                             Width="*" />
+                        <ColumnDefinition
+                             Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                        Grid.Column="1"
+                        Margin="8 0 0 0"
+                        materialDesign:HintAssist.Hint="Search"
+                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                        BorderThickness="0"
+                        MinWidth="200"
+                        Text="{Binding Txtb_search,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                        VerticalAlignment="Center">
+                        <interacitivy:Interaction.Triggers>
+                            <interacitivy:EventTrigger EventName="TextChanged">
+                                <interacitivy:InvokeCommandAction Command="{Binding TextchangedCommand}">
+
+                                </interacitivy:InvokeCommandAction>
+                            </interacitivy:EventTrigger>
+                        </interacitivy:Interaction.Triggers>
+                    </TextBox>
+                </Grid>
+            </materialDesign:ColorZone>
+            <Button
+                Style="{StaticResource MaterialDesignToolForegroundButton}"
+                Margin="8 0 0 0"
+                Panel.ZIndex="0"
+                Command="{Binding Historycommand}">
+                <materialDesign:PackIcon
+                 Kind="History" />
+            </Button>
+            <Button
+                Style="{StaticResource MaterialDesignToolForegroundButton}"
+                Margin="8 0 0 0"
+                Panel.ZIndex="0"
+                Command="{Binding AllCommand}">
+                <materialDesign:PackIcon
+                 Kind="BorderAll" />
+            </Button>
+        </StackPanel>
+        <DataGrid Grid.Row="1" ScrollViewer.CanContentScroll="False" Margin="0,0,0,0" ItemsSource="{Binding Books, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedBook, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="200"  Header="Book Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn  Width="200" Header="Page Count" Binding="{Binding Pages}"/>
+                <DataGridTextColumn Width="200" Header="Comment" Binding="{Binding Comment}"/>
+                <DataGridTextColumn Width="200" Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button  Content="Take" Name="Take"
+                                         Command="{Binding Path=DataContext.ClickTakeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
